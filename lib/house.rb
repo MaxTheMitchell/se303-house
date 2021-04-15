@@ -3,6 +3,7 @@ class House
   end
 
   def recite
+    (1..12).map { |i| line(i) }.join("\n")
   end
 
   def line(number)
