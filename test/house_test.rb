@@ -65,7 +65,6 @@ class HouseTest < Minitest::Test
   end
 
   def test_all_the_lines
-    skip
     expected = <<-TEXT
 This is the house that Jack built.
 
