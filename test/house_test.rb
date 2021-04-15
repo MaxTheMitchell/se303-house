@@ -1,17 +1,15 @@
-gem 'minitest', '~> 5.4'
-require 'minitest/autorun'
-require 'minitest/pride'
-require_relative '../lib/house'
+gem "minitest", "~> 5.4"
+require "minitest/autorun"
+require "minitest/pride"
+require_relative "../lib/house"
 
 class HouseTest < Minitest::Test
-
   def test_line_1
     expected = "This is the house that Jack built.\n"
     assert_equal expected, House.new.line(1)
   end
 
   def test_line_2
-    skip
     expected = "This is the malt that lay in the house that Jack built.\n"
     assert_equal expected, House.new.line(2)
   end
@@ -105,5 +103,4 @@ This is the horse and the hound and the horn that belonged to the farmer sowing 
     TEXT
     assert_equal expected, House.new.recite
   end
-
 end
