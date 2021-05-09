@@ -11,7 +11,7 @@ class House
     when 1
       "This is #{before_the_house(number)}the house that Jack built.\n"
     when 2
-      "This is the malt that lay in the house that Jack built.\n"
+      "This is #{before_the_house(number)}the house that Jack built.\n"
     when 3
       "This is the rat that ate the malt that lay in the house that Jack built.\n"
     when 4
