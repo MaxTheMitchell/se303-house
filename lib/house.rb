@@ -34,11 +34,12 @@ class House
   private
 
   def before_the_house(number)
-    if number == 1
+    case number
+    when 1
       ""
-    elsif number == 2
+    when 2
       "the malt that lay in "
-    else 
+    when 3 
       "the rat that ate the malt that lay in "
     end 
   end
