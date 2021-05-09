@@ -8,8 +8,6 @@ class House
 
   def line(number)
     case number
-    when 4
-      "This is #{before_the_house(number)}the house that Jack built.\n"
     when 5
       "This is the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built.\n"
     when 6
