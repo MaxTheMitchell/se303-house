@@ -38,6 +38,10 @@ class House
   private
 
   def before_the_house(number)
-    ""
+    if number == 1
+      ""
+    else
+      "the malt that lay in "
+    end 
   end
 end
