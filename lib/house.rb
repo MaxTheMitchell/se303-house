@@ -14,8 +14,6 @@ class House
 
   def things_around_the_house(number)
     case number
-    when 6
-      "the cow with the crumpled horn that tossed #{things_around_the_house(5)}"
     when 7
       "the maiden all forlorn that milked #{things_around_the_house(6)}"
     when 8 
@@ -37,7 +35,8 @@ class House
           "the malt that lay in ",
           "the rat that ate ",
           "the cat that killed ",
-          "the dog that worried "
+          "the dog that worried ",
+          "the cow with the crumpled horn that tossed "
         ][number - 1] + things_around_the_house(number - 1)
       end
     end
