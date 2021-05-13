@@ -7,7 +7,7 @@ class House
   end
 
   def line(number)
-    "This is #{before_the_house(number)}the house that Jack built.\n"
+    "This is #{before_the_house(number)}"
   end
 
   private
@@ -15,7 +15,7 @@ class House
   def before_the_house(number)
     case number
     when 1
-      ""
+      "the house that Jack built.\n"
     when 2
       "the malt that lay in #{before_the_house(1)}"
     when 3 
