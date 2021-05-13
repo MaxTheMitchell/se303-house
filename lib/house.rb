@@ -14,8 +14,6 @@ class House
 
   def things_around_the_house(number)
     case number
-    when 2
-      "the malt that lay in #{things_around_the_house(1)}"
     when 3 
       "the rat that ate #{things_around_the_house(2)}"
     when 4 
@@ -40,7 +38,10 @@ class House
       if number == 0
         ""
       else 
-        ["the house that Jack built.\n"][number - 1] + things_around_the_house(number - 1)
+        [
+          "the house that Jack built.\n",
+          "the malt that lay in "
+        ][number - 1] + things_around_the_house(number - 1)
       end
     end
   end
