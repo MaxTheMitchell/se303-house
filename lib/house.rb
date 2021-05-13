@@ -40,7 +40,7 @@ class House
       if number == 0
         ""
       else 
-        ["the house that Jack built.\n"][number - 1]
+        ["the house that Jack built.\n"][number - 1] + things_around_the_house(number - 1)
       end
     end
   end
