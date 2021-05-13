@@ -17,7 +17,7 @@ class House
     when 1
       ""
     when 2
-      "the malt that lay in "
+      "the malt that lay in #{before_the_house(1)}"
     when 3 
       "the rat that ate #{before_the_house(2)}"
     when 4 
