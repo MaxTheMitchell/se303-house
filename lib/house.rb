@@ -37,7 +37,11 @@ class House
     when 12 
       "the horse and the hound and the horn that belonged to #{things_around_the_house(11)}"
     else 
-      ["the house that Jack built.\n"][number - 1]
+      if number == 0
+        ""
+      else 
+        ["the house that Jack built.\n"][number - 1]
+      end
     end
   end
 end
