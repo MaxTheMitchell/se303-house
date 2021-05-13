@@ -25,7 +25,7 @@ class House
     when 5 
       "the dog that worried the cat that killed the rat that ate the malt that lay in "
     when 6
-      "the cow with the crumpled horn that tossed the dog that worried the cat that killed the rat that ate the malt that lay in "
+      "the cow with the crumpled horn that tossed #{before_the_house(5)}"
     when 7
       "the maiden all forlorn that milked #{before_the_house(6)}"
     when 8 
