@@ -23,7 +23,7 @@ class House
     when 4 
       "the cat that killed the rat that ate the malt that lay in "
     when 5 
-      "the dog that worried the cat that killed the rat that ate the malt that lay in "
+      "the dog that worried #{before_the_house(4)}"
     when 6
       "the cow with the crumpled horn that tossed #{before_the_house(5)}"
     when 7
