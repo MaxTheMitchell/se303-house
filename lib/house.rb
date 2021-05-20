@@ -3,8 +3,16 @@ class House
     (1..12).map { |i| line(i) }.join("\n")
   end
 
+  def random_recite
+    (1..12).map { |i| random_line(i) }.join("\n")
+  end
+
   def line(number)
-    "#{introduction} #{things_around_the_house(number)}"
+    "#{introduction} #{things_around_the_house(number)}.\n"
+  end
+
+  def random_line(number)
+    "#{introduction} #{random_things_around_the_house(number)}.\n"
   end
 
   private
@@ -17,9 +25,13 @@ class House
     verses[0...number].reverse.join(" ")
   end
 
+  def random_things_around_the_house(number)
+    verses.shuffle[0...number].join(" ")
+  end
+
   def verses
     [
-      "the house that Jack built.\n",
+      "the house that Jack built",
       "the malt that lay in",
       "the rat that ate",
       "the cat that killed",
