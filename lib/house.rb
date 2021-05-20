@@ -7,10 +7,14 @@ class House
   end
 
   def line(number)
-    "This is #{things_around_the_house(number)}"
+    "#{introduction} #{things_around_the_house(number)}"
   end
 
   private
+
+  def introduction
+    "This is"
+  end
 
   def things_around_the_house(number)
     [
@@ -25,7 +29,7 @@ class House
       "the priest all shaven and shorn that married",
       "the rooster that crowed in the morn that woke",
       "the farmer sowing his corn that kept",
-      "the horse and the hound and the horn that belonged to"
+      "the horse and the hound and the horn that belonged to",
     ][0...number].reverse.join(" ")
   end
 end
