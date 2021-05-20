@@ -30,20 +30,7 @@ class House
   end
 
   def verses
-    [
-      "the house that Jack built.",
-      "the malt that lay in",
-      "the rat that ate",
-      "the cat that killed",
-      "the dog that worried",
-      "the cow with the crumpled horn that tossed",
-      "the maiden all forlorn that milked",
-      "the man all tattered and torn that kissed",
-      "the priest all shaven and shorn that married",
-      "the rooster that crowed in the morn that woke",
-      "the farmer sowing his corn that kept",
-      "the horse and the hound and the horn that belonged to",
-    ]
+    12.times.map { |i| "the #{subjects[i]} that #{verbs[i]}" }
   end
 
   def subjects
@@ -56,7 +43,7 @@ class House
       "cow with the crumpled horn",
       "maiden all forlorn",
       "man all tattered and torn",
-      "the priest all shaven and shorn",
+      "priest all shaven and shorn",
       "rooster that crowed in the morn",
       "farmer sowing his corn",
       "horse and the hound and the horn",
