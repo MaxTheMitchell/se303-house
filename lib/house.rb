@@ -1,7 +1,4 @@
 class House
-  def initialize
-  end
-
   def recite
     (1..12).map { |i| line(i) }.join("\n")
   end
@@ -31,5 +28,11 @@ class House
       "the farmer sowing his corn that kept",
       "the horse and the hound and the horn that belonged to",
     ][0...number].reverse.join(" ")
+  end
+end
+
+class PirateHouse < House
+  def introduction
+    "Thar be"
   end
 end
