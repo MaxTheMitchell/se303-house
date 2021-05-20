@@ -46,7 +46,7 @@ class House
     ]
   end
 
-  def subjecs
+  def subjects
     [
       "house",
       "malt",
@@ -60,6 +60,23 @@ class House
       "rooster that crowed in the morn",
       "farmer sowing his corn",
       "horse and the hound and the horn",
+    ]
+  end
+
+  def verbs
+    [
+      "Jack built.",
+      "lay in",
+      "ate",
+      "killed",
+      "worried",
+      "tossed",
+      "milked",
+      "kissed",
+      "married",
+      "woke",
+      "kept",
+      "belonged to",
     ]
   end
 end
