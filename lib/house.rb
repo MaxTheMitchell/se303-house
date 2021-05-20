@@ -14,6 +14,10 @@ class House
   end
 
   def things_around_the_house(number)
+    verses[0...number].reverse.join(" ")
+  end
+
+  def verses
     [
       "the house that Jack built.\n",
       "the malt that lay in",
@@ -27,11 +31,13 @@ class House
       "the rooster that crowed in the morn that woke",
       "the farmer sowing his corn that kept",
       "the horse and the hound and the horn that belonged to",
-    ][0...number].reverse.join(" ")
+    ]
   end
 end
 
 class PirateHouse < House
+  private
+
   def introduction
     "Thar be"
   end
