@@ -8,11 +8,11 @@ class House
   end
 
   def line(number)
-    "#{introduction} #{things_around_the_house(number)}.\n"
+    "#{introduction} #{things_around_the_house(number)}\n"
   end
 
   def random_line(number)
-    "#{introduction} #{random_things_around_the_house(number)}.\n"
+    "#{introduction} #{random_things_around_the_house(number)}\n"
   end
 
   private
@@ -26,12 +26,12 @@ class House
   end
 
   def random_things_around_the_house(number)
-    verses.shuffle[0...number].join(" ")
+    (verses[1..].shuffle.take(number - 1) << verses[0]).join(" ")
   end
 
   def verses
     [
-      "the house that Jack built",
+      "the house that Jack built.",
       "the malt that lay in",
       "the rat that ate",
       "the cat that killed",
