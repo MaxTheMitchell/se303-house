@@ -8,11 +8,11 @@ class House
   end
 
   def line(number)
-    "#{introduction} #{things_around_the_house(number)}\n"
+    "#{introduction} #{things_around_the_house(number)}.\n"
   end
 
   def random_line(number)
-    "#{introduction} #{random_things_around_the_house(number)}\n"
+    "#{introduction} #{random_things_around_the_house(number)}.\n"
   end
 
   private
@@ -26,11 +26,15 @@ class House
   end
 
   def random_things_around_the_house(number)
-    (verses[1..].shuffle.take(number - 1) << verses[0]).join(" ")
+    (random_verses.take(number - 1) << verses[0]).join(" ")
   end
 
   def verses
     12.times.map { |i| "the #{subjects[i]} that #{verbs[i]}" }
+  end
+
+  def random_verses
+    12.times.map { |i| "the #{subjects.sample} that #{verbs.sample}" }
   end
 
   def subjects
@@ -52,7 +56,7 @@ class House
 
   def verbs
     [
-      "Jack built.",
+      "Jack built",
       "lay in",
       "ate",
       "killed",
@@ -75,3 +79,5 @@ class PirateHouse < House
     "Thar be"
   end
 end
+
+puts House.new.random_recite
