@@ -72,7 +72,7 @@ class PirateHouse < House
   end
 end
 
-class RandomHouse < House 
+class FragmentedHouse < House 
   private
 
   def verse(index)
