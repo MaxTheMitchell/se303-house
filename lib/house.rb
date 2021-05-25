@@ -74,7 +74,9 @@ class RandomHouse < House
     verses.take(number - 1).append("the house that Jack built").join(" ")
   end
 
-  def verses
-    12.times.map { "the #{subjects.sample} that #{verbs.sample}" }
+  def verse(_)
+    "the #{subjects.sample} that #{verbs.sample}"
   end
 end
+
+puts RandomHouse.new.recite
