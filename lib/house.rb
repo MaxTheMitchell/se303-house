@@ -70,13 +70,12 @@ end
 
 class RandomHouse < House 
   private
-  def things_around_the_house(number)
-    verses.take(number - 1).append("the house that Jack built").join(" ")
-  end
 
-  def verse(_)
-    "the #{subjects.sample} that #{verbs.sample}"
+  def verse(index)
+    if index == 0
+      "the #{subjects.first} that #{verbs.first}"
+    else 
+      "the #{subjects.sample} that #{verbs.sample}"
+    end
   end
 end
-
-puts RandomHouse.new.recite
