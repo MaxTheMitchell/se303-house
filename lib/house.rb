@@ -21,10 +21,6 @@ class House
     12.times.map { |i| "the #{subjects[i]} that #{verbs[i]}" }
   end
 
-  def random_verses
-    12.times.map { |i| "the #{subjects.sample} that #{verbs.sample}" }
-  end
-
   def subjects
     [
       "house",
@@ -69,16 +65,14 @@ class PirateHouse < House
 end
 
 class RandomHouse < House 
-  def recite
-    (1..12).map { |i| line(i) }.join("\n")
-  end
-  
-  def line(number)
-    "#{introduction} #{things_around_the_house(number)}.\n"
-  end
-
   private
   def things_around_the_house(number)
     (random_verses.take(number - 1) << verses[0]).join(" ")
   end
+
+  def random_verses
+    12.times.map { |i| "the #{subjects.sample} that #{verbs.sample}" }
+  end
 end
+
+puts RandomHouse.new.recite
