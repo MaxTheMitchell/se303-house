@@ -18,7 +18,11 @@ class House
   end
 
   def verses
-    12.times.map { |i| "the #{subjects[i]} that #{verbs[i]}" }
+    12.times.map { |i| verse(i) }
+  end
+
+  def verse(index)
+    "the #{subjects[index]} that #{verbs[index]}"
   end
 
   def subjects
