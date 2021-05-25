@@ -67,12 +67,10 @@ end
 class RandomHouse < House 
   private
   def things_around_the_house(number)
-    (random_verses.take(number - 1) << verses[0]).join(" ")
+    verses.take(number - 1).append("the house that Jack built").join(" ")
   end
 
-  def random_verses
-    12.times.map { |i| "the #{subjects.sample} that #{verbs.sample}" }
+  def verses
+    12.times.map { "the #{subjects.sample} that #{verbs.sample}" }
   end
 end
-
-puts RandomHouse.new.recite
