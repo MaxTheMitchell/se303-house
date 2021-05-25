@@ -83,3 +83,11 @@ class FragmentedHouse < House
     end
   end
 end
+
+class RandomHouse < House
+  private
+
+  def things_around_the_house(number)
+    verses[1..].shuffle.take(number - 1).append(verses[0]).join(" ")
+  end
+end
