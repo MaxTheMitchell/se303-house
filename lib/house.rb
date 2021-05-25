@@ -3,16 +3,8 @@ class House
     (1..12).map { |i| line(i) }.join("\n")
   end
 
-  def random_recite
-    (1..12).map { |i| random_line(i) }.join("\n")
-  end
-
   def line(number)
     "#{introduction} #{things_around_the_house(number)}.\n"
-  end
-
-  def random_line(number)
-    "#{introduction} #{random_things_around_the_house(number)}.\n"
   end
 
   private
@@ -23,10 +15,6 @@ class House
 
   def things_around_the_house(number)
     verses[0...number].reverse.join(" ")
-  end
-
-  def random_things_around_the_house(number)
-    (random_verses.take(number - 1) << verses[0]).join(" ")
   end
 
   def verses
@@ -80,4 +68,17 @@ class PirateHouse < House
   end
 end
 
-puts House.new.random_recite
+class RandomHouse < House 
+  def random_recite
+    (1..12).map { |i| random_line(i) }.join("\n")
+  end
+  
+  def random_line(number)
+    "#{introduction} #{random_things_around_the_house(number)}.\n"
+  end
+
+  private
+  def random_things_around_the_house(number)
+    (random_verses.take(number - 1) << verses[0]).join(" ")
+  end
+end
