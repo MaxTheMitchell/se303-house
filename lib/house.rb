@@ -22,7 +22,11 @@ class House
   end
 
   def verse(index)
-    "the #{subjects[index]} that #{verbs[index]}"
+    create_verse(subjects[index], verbs[index])
+  end
+
+  def create_verse(subject, verb)
+    "the #{subject} that #{verb}"
   end
 
   def subjects
@@ -73,9 +77,9 @@ class RandomHouse < House
 
   def verse(index)
     if index == 0
-      "the #{subjects.first} that #{verbs.first}"
+      create_verse(subjects.first, verbs.first)
     else 
-      "the #{subjects.sample} that #{verbs.sample}"
+      create_verse(subjects.sample, verbs.sample)
     end
   end
 end
