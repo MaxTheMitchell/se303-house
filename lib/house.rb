@@ -11,7 +11,7 @@ class House
   end
 
   def line(number)
-    "#{introduction} #{things_around_the_house(number)}.\n"
+    "#{introduction} #{phrases(number)}.\n"
   end
 
   private
@@ -60,7 +60,7 @@ class House
     introduction_stategy.introduction
   end
 
-  def things_around_the_house(number)
+  def phrases(number)
     verses[0...number].reverse.join(" ")
   end
 
