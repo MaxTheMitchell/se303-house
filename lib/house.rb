@@ -1,37 +1,4 @@
 class House
-  def initialize
-    @subjects =
-    [
-      "house",
-      "malt",
-      "rat",
-      "cat",
-      "dog",
-      "cow with the crumpled horn",
-      "maiden all forlorn",
-      "man all tattered and torn",
-      "priest all shaven and shorn",
-      "rooster that crowed in the morn",
-      "farmer sowing his corn",
-      "horse and the hound and the horn",
-    ]
-  @verbs =
-    [
-      "Jack built",
-      "lay in",
-      "ate",
-      "killed",
-      "worried",
-      "tossed",
-      "milked",
-      "kissed",
-      "married",
-      "woke",
-      "kept",
-      "belonged to",
-    ]
-  end
-
   def recite
     (1..12).map { |i| line(i) }.join("\n")
   end
@@ -42,7 +9,42 @@ class House
 
   private
 
-  attr_reader :verbs, :subjects
+  SUBJECTS = [
+    "house",
+    "malt",
+    "rat",
+    "cat",
+    "dog",
+    "cow with the crumpled horn",
+    "maiden all forlorn",
+    "man all tattered and torn",
+    "priest all shaven and shorn",
+    "rooster that crowed in the morn",
+    "farmer sowing his corn",
+    "horse and the hound and the horn",
+  ]
+
+  VERBS = ["Jack built",
+  "lay in",
+  "ate",
+  "killed",
+  "worried",
+  "tossed",
+  "milked",
+  "kissed",
+  "married",
+  "woke",
+  "kept",
+  "belonged to",
+  ]
+
+  def subjects
+    SUBJECTS
+  end
+
+  def verbs
+    VERBS
+  end
 
   def introduction
     "This is"
