@@ -79,12 +79,11 @@ end
 class FragmentedHouse < House 
   private
 
-  def verse(index)
-    if index == 0
-      create_verse(subjects.first, verbs.first)
-    else 
-      create_verse(subjects.sample, verbs.sample)
-    end
+  attr_reader :verbs, :subjects
+
+  def initialize
+    @verbs = VERBS[1..].shuffle.unshift(VERBS.first)
+    @subjects = SUBJECTS[1..].shuffle.unshift(SUBJECTS.first)
   end
 end
 
