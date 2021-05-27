@@ -1,9 +1,14 @@
 class House
-  def initialize(introduction_stategy = :DefualtStategy)
-    @introduction_stategy = {
-      DefualtStategy: DefualtIntroductionStategy,
-      PirateStategy: PirateIntroductionStategy
+  def initialize(introduction_stategy = :DefualtStrategy, phrase_stategy = :DefualtStrategy)
+    @introduction_strategy = {
+      DefualtStrategy: DefualtIntroductionStategy,
+      PirateStrategy: PirateIntroductionStategy
     }[introduction_stategy].new
+    @phrase_strategy = {
+      DefualtStrategy: DefualtPhraseStrategy,
+      RandomStrategy: RandomPhraseStrategy,
+      FragmentedStrategy: FragmentedPhraseStrategy
+    }[phrase_stategy].new(SUBJECTS, VERBS)
   end
 
   def recite
@@ -16,7 +21,7 @@ class House
 
   private
 
-  attr_reader :introduction_stategy
+  attr_reader :introduction_strategy, :phrase_strategy
 
   SUBJECTS = [
     "house",
@@ -49,15 +54,15 @@ class House
   ]
 
   def subjects
-    SUBJECTS
+    phrase_strategy.subjects
   end
 
   def verbs
-    VERBS
+    phrase_strategy.verbs
   end
 
   def introduction
-    introduction_stategy.introduction
+    introduction_strategy.introduction
   end
 
   def phrases(number)
@@ -87,28 +92,32 @@ class House
       "This is"
     end
   end
-end
 
+  class RandomPhraseStrategy
+    attr_reader :subjects, :verbs
 
-class FragmentedHouse < House 
-  private
-
-  attr_reader :verbs, :subjects
-
-  def initialize
-    @verbs = VERBS[1..].shuffle.unshift(VERBS.first)
-    @subjects = SUBJECTS[1..].shuffle.unshift(SUBJECTS.first)
+    def initialize(subjects, verbs)
+      indicies = verbs[1..].length.times.map{ |i| i + 1 }.shuffle.unshift(0)
+      @verbs = indicies.map { |i| verbs[i] }
+      @subjects = indicies.map { |i| subjects[i] }
+    end
   end
-end
 
-class RandomHouse < House
-  private
-  
-  attr_reader :verbs, :subjects
+  class FragmentedPhraseStrategy
+    attr_reader :subjects, :verbs
 
-  def initialize
-    indicies = VERBS[1..].length.times.map{ |i| i + 1 }.shuffle.unshift(0)
-    @verbs = indicies.map { |i| VERBS[i] }
-    @subjects = indicies.map { |i| SUBJECTS[i] }   
+    def initialize(subjects, verbs)
+      @verbs = verbs[1..].shuffle.unshift(verbs.first)
+      @subjects = subjects[1..].shuffle.unshift(subjects.first)
+    end
+  end
+
+  class DefualtPhraseStrategy
+    attr_reader :subjects, :verbs
+
+    def initialize(subjects, verbs)
+      @subjects = subjects
+      @verbs = verbs
+    end
   end
 end
