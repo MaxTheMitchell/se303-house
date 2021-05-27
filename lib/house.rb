@@ -24,7 +24,8 @@ class House
     "horse and the hound and the horn",
   ]
 
-  VERBS = ["Jack built",
+  VERBS = [
+  "Jack built",
   "lay in",
   "ate",
   "killed",
@@ -93,7 +94,7 @@ class RandomHouse < House
   attr_reader :verbs, :subjects
 
   def initialize
-    indicies = VERBS.length.times.to_a.shuffle
+    indicies = VERBS[1..].length.times.map{ |i| i + 1 }.shuffle.unshift(0)
     @verbs = indicies.map { |i| VERBS[i] }
     @subjects = indicies.map { |i| SUBJECTS[i] }   
   end
