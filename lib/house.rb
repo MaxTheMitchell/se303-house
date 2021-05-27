@@ -89,8 +89,12 @@ end
 
 class RandomHouse < House
   private
+  
+  attr_reader :verbs, :subjects
 
-  def things_around_the_house(number)
-    verses[1..].shuffle.take(number - 1).append(verses[0]).join(" ")
+  def initialize
+    indicies = VERBS.length.times.to_a.shuffle
+    @verbs = indicies.map { |i| VERBS[i] }
+    @subjects = indicies.map { |i| SUBJECTS[i] }   
   end
 end
