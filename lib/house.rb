@@ -1,4 +1,11 @@
 class House
+  def initialize(introduction_stategy = :DefualtStategy)
+    @introduction_stategy = {
+      DefualtStategy: DefualtIntroductionStategy,
+      PirateStategy: PirateIntroductionStategy
+    }[introduction_stategy].new
+  end
+
   def recite
     (1..12).map { |i| line(i) }.join("\n")
   end
@@ -8,6 +15,8 @@ class House
   end
 
   private
+
+  attr_reader :introduction_stategy
 
   SUBJECTS = [
     "house",
@@ -48,7 +57,7 @@ class House
   end
 
   def introduction
-    "This is"
+    introduction_stategy.introduction
   end
 
   def things_around_the_house(number)
@@ -66,15 +75,20 @@ class House
   def create_verse(subject, verb)
     "the #{subject} that #{verb}"
   end
-end
 
-class PirateHouse < House
-  private
-
-  def introduction
-    "Thar be"
+  class PirateIntroductionStategy
+    def introduction
+      "Thar be"
+    end
+  end
+  
+  class DefualtIntroductionStategy
+    def introduction
+      "This is"
+    end
   end
 end
+
 
 class FragmentedHouse < House 
   private
